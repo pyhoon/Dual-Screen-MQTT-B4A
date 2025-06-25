@@ -2,11 +2,11 @@
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.puterise.mqtt.primary"
-	android:versionCode="1"
+	android:versionCode="2"
 	android:versionName=""
 	android:installLocation="internalOnly">
 	
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33"/>
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>
 	<supports-screens android:largeScreens="true" 
 	    android:normalScreens="true" 
 	    android:smallScreens="true" 
@@ -16,6 +16,7 @@
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 	<application
+		android:name="androidx.multidex.MultiDexApplication"
 		android:icon="@drawable/icon"
 		android:label="Mqtt Primary"
 		android:theme="@style/LightTheme">
@@ -38,6 +39,10 @@
 		</service>
 		<receiver
 			android:name=".starter$starter_BR"
+			android:exported="true">
+		</receiver>
+		<receiver
+			android:name=".httputils2service"
 			android:exported="true">
 		</receiver>
 	</application>
